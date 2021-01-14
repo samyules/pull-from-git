@@ -11,16 +11,16 @@
   file:
     path: $HOME/.config/nvim
     state: directory
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    owner: "{{ ansible_remote_user }}"
+    group: "{{ ansible_remote_user }}"
     mode: 0755
 
 - name: copy neovim config files
   copy:
     src: "{{ item }}"
     dest: "$HOME/.config/nvim/{{ item }}"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    owner: "{{ ansible_remote_user }}"
+    group: "{{ ansible_remote_user }}"
     mode: 0755
   loop:
     - init.vim
